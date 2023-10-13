@@ -23,7 +23,7 @@ jobs:
       issues: read
       checks: write
       pull-requests: write
-    uses:  GitActions-POC/common_Template/.github/workflows/angular-common-template.yml@main
+    uses:  GitActions-POC/Code-Scanning-Repo/.github/workflows/angular-common-template.yml@main
     with:
       NodeJS-version: 16
       environment: prod
