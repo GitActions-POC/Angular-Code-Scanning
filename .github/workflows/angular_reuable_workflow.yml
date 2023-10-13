@@ -3,7 +3,21 @@ on:
   workflow_dispatch:
 
 jobs:
+  call-code-scanning:
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    uses:  GitActions-POC/Code-Scanning-Repo/.github/workflows/Codacy-security-scan.yml@main
+    with:
+      output: results.sarif
+      format: sarif
+      code-quality-check: yes
   call-common-template:
+    needs: call-code-scanning
+    if: |
+      always() &&
+      (needs.call-code-scanning.result == 'skipped' || needs.call-code-scanning.result == 'success')
     permissions: 
       contents: write
       issues: read
