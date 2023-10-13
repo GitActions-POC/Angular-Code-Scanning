@@ -1,0 +1,17 @@
+name: angular_reuable_workflow
+on:
+  workflow_dispatch:
+
+jobs:
+  call-common-template:
+    permissions: 
+      contents: write
+      issues: read
+      checks: write
+      pull-requests: write
+    uses:  GitActions-POC/common_Template/.github/workflows/angular-common-template.yml@main
+    with:
+      NodeJS-version: 16
+      environment: prod
+      publish_dir: dist/angular-github-actions
+      enable_jekyll: true
