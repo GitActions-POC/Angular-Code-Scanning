@@ -15,7 +15,7 @@ jobs:
     with:
       NodeJS-version: 16
       environment: prod
-      publish_dir: dist/angular-github-actions
+      publish_dir: dist/Angular-Code-Scanning
       enable_jekyll: true
       output: results.sarif
       format: sarif
