@@ -1,0 +1,22 @@
+name: angular_reuable_workflow
+on:
+  workflow_dispatch:
+
+jobs:
+  call-common-template:
+    permissions: 
+      contents: write
+      issues: read
+      checks: write
+      pull-requests: write
+      actions: read
+      security-events: write
+    uses:  GitActions-POC/Code-Scanning-Repo/.github/workflows/angular-new-workflow.yml@main
+    with:
+      NodeJS-version: 16
+      environment: prod
+      publish_dir: dist/angular-github-actions
+      enable_jekyll: true
+      output: results.sarif
+      format: sarif
+      code-quality-check: yes
